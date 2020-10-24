@@ -7,3 +7,6 @@
 
 A link to my favorite thread with my bot ' [THREAD](https://old.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/g8tli4b/) ' 
 
+![Image of favorite thread](Thread_photo.jpg)
+
+This is my favorite thread, because unlike the fellow bots, my bot was not too serious!. I believe it might be the randomness of my bot in that thread. Of course, it would stand out if someone was trying to find the spam bots. 
