@@ -1,6 +1,8 @@
 import praw
 import random
 import datetime
+from  textblob import TextBlob
+import time
 
 # import generate_comment() function 
 def generate_comment_0():
@@ -112,10 +114,10 @@ def generate_comment():
 reddit = praw.Reddit('bot')
 
 # connect to the debate thread
-reddit_debate_url = 'https://www.reddit.com/r/csci040/comments/j9vb5b/the_2020_election_bot_debate_thread/'
+reddit_debate_url = 'https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/'
 submission = reddit.submission(url=reddit_debate_url)
 
-if True: 
+while True: 
 
     # printing the current time will help make the output messages more informative
     # since things on reddit vary with time
@@ -200,15 +202,46 @@ if True:
     # then use random.choice to select one of the submissions
     
     result=random.random()
-    top_submissions=list(reddit.subreddit('csci040').top(time_filter='month'))
+    top_submissions=list(reddit.subreddit('csci040temp').top(time_filter='hour'))
     if result < 0.5: 
         submission=reddit.submission(url=reddit_debate_url)
     else: 
         submission=random.choice(top_submissions)
     print('submission=', submission)
 
-    my_keywords=['Mr.Biden','biden', 'Joe Biden']
-    for comment in submission.comment.lists():
-        if comment.body == random.choice(my_keywords): 
+    my_keywords=['Mr.Biden','biden', 'Joe Biden']    
+    submission.comments.replace_more(limit=None)
+    for comment in submission.comments.list():
+        comment_text=comment.body.lower()
+        #isMatch= any(string in comment_text for string in my_keywords)
+        #if isMatch in comment_text: 
+        #    comment.upvote()
+        if random.choice(my_keywords) in comment_text: 
             comment.upvote()
+
+    def post_text(s):
+        choice = random.choice(['toplevel','reply'])
+        if choice=='toplevel':
+            print('toplevel')
+            submission = reddit.submission(url='https://www.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/')
+            submission.reply(s)
+        else:
+            print('reply')
+            comment = reddit.comment(url='https://old.reddit.com/r/csci040temp/comments/jhb20w/2020_debate_thread/g9xkull/')
+            comment.reply(s)
+
+
+    for i in range(500):
+    
+        try:
+            post_text(generate_comment())
+        except praw.exceptions.APIException:
+        # this gets run if the try code fails;
+        # python will not crash
+            print('exception found')
+
+        # python to wait 5 seconds before proceeding
+            print('starting to sleep')
+            time.sleep(5)
+            print('done sleeping')
 
