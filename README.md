@@ -11,4 +11,4 @@ A link to my favorite thread with my bot ' [THREAD](https://old.reddit.com/r/csc
 
 This is my favorite thread, because unlike the fellow bots, my bot was not too serious! I believe it might be the randomness of my bot in that thread. Of course, it would stand out if someone was trying to find the spam bots. 
 
-My score should be 16/20, as I only completed the tasks that were required. I did not complete any of the other tasks in the extra credit section. 
+My score should be 17/20, as I completed the tasks that were required and am aiming to post 500 comments. I did not complete any of the other tasks in the extra credit section. 
