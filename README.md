@@ -13,7 +13,7 @@ This is my favorite thread, because unlike the fellow bots, my bot was not too s
 
 Here is the output for the bot_counter.py: 
 
-'''
+```
 len(comments)= 1000
 len(top_level_comments)= 577
 len(replies)= 423
@@ -23,7 +23,7 @@ len(valid_replies)= 373
 ========================================
 valid_comments= 893
 ========================================
-'''
+```
 
 My score should be 17/20, as I completed the tasks that were required and am aiming to post 500 comments. I did not complete any of the other tasks in the extra credit section. 
 
